@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'pages/base.html' %}
+{% block body1%}
+{% if user.is_authenticated %}
+<h1>OK!!!</h1>
+{% else%}
+<h1>Please Register first</h1>
+{% endif %}
+    <h1>Page2:This Page Has The Graphical Drawing Data</h1>
+{% endblock%}

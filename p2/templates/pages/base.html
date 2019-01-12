@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Page1</title>
+    <link rel="stylesheet" href="{% static "cssfiles/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "cssfiles/style.css" %}">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <ul class="nav">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'base' %}">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link"  href="{% url 'admin:index' %}">Admin</a> </li>
+
+          <li class="nav-item"> <a class="nav-link"  href="{% url 'work:page2' %}">GRAPHICS</a> </li>
+
+
+          <li class="nav-item"> <a class="nav-link"  href="{% url 'work:page3' %}">Register</a> </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"> <a class="nav-link"  href="{% url 'logout' %}">LogOut</a> </li>
+          {% else %}
+          <li class="nav-item"> <a class="nav-link"  href="{% url 'work:user_login' %}">LogIN</a> </li>
+          {% endif %}
+        </ul>
+
+      </nav>
+
+    </div>
+    <div class="container">
+      <div class="jumbotron">
+
+        {% block body1%}
+        <h1>Page1:THIS PAGE IS OUR MAIN BAGE <br>IT HAS THE NAVIGATION BAR AND THE LOG IN FORMS</h1>
+        {% endblock %}
+      </div>
+
+    </div>
+
+  </body>
+</html>
